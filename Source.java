@@ -12,13 +12,13 @@ class Node<T> {
 }
 
 class Source {
-  public static List<Integer> sumList(Node<Integer> head) {
+  public static int sumList(Node<Integer> head) {
     ArrayList<Integer> sol = new ArrayList<>();
     while(head != null) {
       sol.add(head.val);
       head = head.next;
     }
-    return sol;
+    return sol.stream().mapToInt(val -> val).sum();
   }
 
   public static void main(String[] args) {
@@ -33,7 +33,7 @@ class Source {
     c.next = d;
     d.next = e;
 
-    // 2 -> 8 -> 3 -> -1 -> 7
+    // 2 -> 8 -> 3 -> -1 -> 7 = 19
 
     Node<Integer> node1 = new Node<>(42);
     Node<Integer> node2 = new Node<>(18);
@@ -47,7 +47,7 @@ class Source {
     node3.next = node4;
     node4.next = node5;
 
-    // 42, 18, 7, 30, 55
+    // 42, 18, 7, 30, 55 + 19 = 171
 
     System.out.println("Sum of my list: ");
     System.out.println(Source.sumList(a));
