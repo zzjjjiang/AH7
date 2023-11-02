@@ -13,12 +13,12 @@ class Node<T> {
 
 class Source {
   public static int sumList(Node<Integer> head) {
-    ArrayList<Integer> sol = new ArrayList<>();
+    int sum = 0;
     while(head != null) {
-      sol.add(head.val);
+      sum += head.val;
       head = head.next;
     }
-    return sol.stream().mapToInt(val -> val).sum();
+    return sum;
   }
 
   public static void main(String[] args) {
